@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElevenLabs & Fal.ai Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls-panel">
+            <h2>Input</h2>
+            <div class="initial-buttons">
+                <button id="loadPresetBtn" class="primary-btn">Load Preset</button>
+                <button id="createNewBtn" class="primary-btn">Create New</button>
+            </div>
+            
+            <div id="presetOptions" class="preset-options hidden">
+                <h3>Select a Preset</h3>
+                <div class="preset-list">
+                    <button class="preset-btn" data-preset="preset1">Preset 1</button>
+                    <button class="preset-btn" data-preset="preset2">Preset 2</button>
+                    <button class="preset-btn" data-preset="preset3">Preset 3</button>
+                    <button class="preset-btn" data-preset="preset4">Preset 4</button>
+                </div>
+                <button id="backBtn" class="secondary-btn">Back</button>
+            </div>
+            
+            <div id="createNewForm" class="create-new-form hidden">
+                <!-- Voice cloning section -->
+                <div class="form-section">
+                    <h3>Voice Cloning</h3>
+                    <div class="input-toggle">
+                        <div class="toggle-buttons">
+                            <button class="toggle-btn active" data-target="audioFileInput">File Upload</button>
+                            <button class="toggle-btn" data-target="audioUrlInput">URL</button>
+                        </div>
+                        
+                        <div id="audioFileInput" class="toggle-content active">
+                            <div class="upload-container">
+                                <input type="file" id="audioUpload" accept="audio/*" class="file-input">
+                                <div class="file-input-wrapper">
+                                    <span id="audioFileName">no file chosen</span>
+                                    <button id="browseAudioBtn" class="browse-btn">Browse</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="audioUrlInput" class="toggle-content">
+                            <input type="text" id="audioUrl" placeholder="https://example.com/audio.mp3">
+                        </div>
+                    </div>
+                    <button id="cloneVoiceBtn" class="action-btn">Clone Voice</button>
+                    <div id="voiceCloneStatus" class="status-message"></div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Image upload section -->
+                <div class="form-section">
+                    <h3>Video Generation</h3>
+                    <div class="input-toggle">
+                        <div class="toggle-buttons">
+                            <button class="toggle-btn active" data-target="imageFileInput">File Upload</button>
+                            <button class="toggle-btn" data-target="imageUrlInput">URL</button>
+                        </div>
+                        
+                        <div id="imageFileInput" class="toggle-content active">
+                            <div class="upload-container">
+                                <input type="file" id="imageUpload" accept="image/*" class="file-input">
+                                <div class="file-input-wrapper">
+                                    <span id="imageFileName">no file chosen</span>
+                                    <button id="browseImageBtn" class="browse-btn">Browse</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="imageUrlInput" class="toggle-content">
+                            <input type="text" id="imageUrl" placeholder="https://example.com/image.jpg">
+                        </div>
+                    </div>
+                    <button id="generateBtn" class="action-btn">Generate Video</button>
+                </div>
+                
+                <button id="createBackBtn" class="secondary-btn">Back</button>
+            </div>
+        </div>
+        
+        <div class="video-output">
+            <h2>Video Output</h2>
+            <div class="video-container">
+                <video id="outputVideo" controls>
+                    Your browser does not support the video element.
+                </video>
+                <div id="placeholderMessage">
+                    Video will appear here after generation
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
